@@ -63,6 +63,7 @@ namespace xSteak.Areas.Admin.Controllers
         //GET edit 
         public async Task<IActionResult> Edit(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -92,11 +93,11 @@ namespace xSteak.Areas.Admin.Controllers
                 }
                 coupons.Picture = p1;
             }
-            else
-            {
-                coupons.Picture = coup.Picture;
-            }
-            _db.Coupon.Update(coupons);
+            coup.MinimumAmount = coupons.MinimumAmount;
+            coup.Name = coupons.Name;
+            coup.Discount = coupons.Discount;
+            coup.CouponType = coupons.CouponType;
+            coup.IsActive = coupons.IsActive;
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
