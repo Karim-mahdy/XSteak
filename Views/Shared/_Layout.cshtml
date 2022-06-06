@@ -42,6 +42,46 @@
                             </li>
 
                         }
+                        
+                        @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.KitchenUser) || User.IsInRole(SD.FrontDeskUser))
+                        {
+                            <li class="nav-item">
+
+                                @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.KitchenUser))
+                                {
+                                    <a asp-action="" asp-controller="" asp-area="Admin" class="nav-link">Mange Order</a>
+                                }
+
+                            </li>
+                            <li class="nav-item">
+
+                                @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.FrontDeskUser))
+                                {
+
+
+                                    <a asp-action="" asp-controller="" asp-area="Admin" class="nav-link">PickUp Order</a>
+                                }
+                            </li>
+
+                        }
+                        @if (User.IsInRole(SD.ManagerUser))
+                        {
+                            <li class="nav-item">
+                                <a asp-area="Customer" asp-controller="" asp-action="" class="nav-link">
+                                    Orders List
+                                </a>
+                            </li>
+
+                        }
+                        @if (User.IsInRole(SD.CustomerEndUser))
+                        {
+                            <li class="nav-item">
+                                <a asp-area="Customer" asp-controller="" asp-action="" class="nav-link">
+                                    Orders History
+                                </a>
+                            </li>
+
+                        }
                         @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.CustomerEndUser))
                         {
 
