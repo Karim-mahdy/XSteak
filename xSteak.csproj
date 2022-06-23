@@ -20,6 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Admin\Views\ManageOrder\Invoice.cshtml" />
+    <None Include="Areas\Admin\Views\ManageOrder\ManageOrder.cshtml" />
+    <None Include="Areas\Admin\Views\ManageOrder\OrderPickup.cshtml" />
     <None Include="Areas\Customer\Views\Order\Confirm.cshtml" />
   </ItemGroup>
 
