@@ -32,11 +32,11 @@
                 </div>
                 <span asp-validation-for="SubCategory.Name" class="text-danger"></span>
             </div>
-            <div class="col-3 offset-1">
+            <div class="col-5 mt-5">
                 @if (Model.SubCategoryList.Count() > 0)
                 {
                     <p class='text-right'> الأنواع الفرعيه المتاحه</p>
-                    <div id="SubCategoryList">
+                    <div id="SubCategoryList" class='text-right'>
                         <ul class="list-group text-right"></ul>
                     </div>
 
