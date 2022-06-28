@@ -27,24 +27,24 @@ namespace xSteak.Models
         public double OrderTotal { get; set; }
 
         [Required]
-        [Display(Name ="PickupTime")]
+        [Display(Name ="وقت الوصل")]
         public DateTime PickupTime { get; set; }
 
         [Required]
-        [Display(Name = "PickupDate")]
+        [Display(Name = "تاريخ الوصول")]
         public DateTime PickupDate { get; set; }
 
-        [Display(Name ="Coupon Code")]
+        [Display(Name ="كود الكوبون")]
         public string CouponCode { get; set; }
         public double CouponCodeDiscount { get; set; }
         public string Status { get; set; }
         public string PaymentStatus { get; set; }
         public string Comments { get; set; }
         
-        [Display(Name ="Pickup Name")]
+        [Display(Name ="اسم التوصيل")]
         public string PickupName { get; set; }
 
-        [Display(Name = "Pickup Number")]
+        [Display(Name = "رقم التوصيل")]
         public string PickupNumber { get; set; }
 
         public string TransactionId { get; set; }

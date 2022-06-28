@@ -9,10 +9,10 @@
 <div class="border backgroundWhite">
     <div class="row">
         <div class="col-6">
-            <h2 class="text-info">Employees List</h2>
+            <h2 class="text-info">قائمه الموظفين</h2>
         </div>
         <div class="col-6 text-right">
-            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-info"><i class="fas fa-plus"></i> &nbsp; New Employee Registeration</a>
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-info"><i class="fas fa-plus"></i> &nbsp; تسجيل موظف جديد</a>
         </div>
     </div>
     <br />
@@ -20,7 +20,7 @@
         @if (Model.Count() > 0)
         {
             <table class="table table-striped border">
-                <tr class="table-secondary">
+                <tr class="table-secondary text-right">
                     <th>
                         @Html.DisplayNameFor(x => x.Name)
                     </th>
@@ -38,7 +38,7 @@
                 </tr>
                 @foreach (var item in Model)
                 {
-            <tr>
+            <tr class='text-right'>
                 <td>
                     @Html.DisplayFor(m => item.Name)
                 </td>
@@ -77,9 +77,9 @@
         }
         else
         {
-            <p>
-                No Employee Exists
-            </p>
+            <h1 class='text-center'>
+                لا يوجد موظفيين مضافيين
+            </h1>
         }
     </div>
 </div>

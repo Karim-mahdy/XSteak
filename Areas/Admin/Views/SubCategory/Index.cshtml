@@ -9,7 +9,7 @@
 <div class="border backgroundWhite">
     <div class="row">
         <div class="col-6">
-            <h2 class="text-info">SubCategory List</h2>
+            <h2 class="text-info">الأنواع الفرعيه</h2>
         </div>
         <div class="col-6 text-right">
             <partial name="_CreateButtonPartial" />
@@ -21,10 +21,10 @@
         {
             <table class="table table-striped border">
                 <tr class="table-secondary">
-                    <th>
+                    <th class='text-right'>
                         @Html.DisplayNameFor(x => x.Name)
                     </th>
-                    <th>
+                    <th class='text-right'>
                         @Html.DisplayNameFor(x => x.Category.Name)
                     </th>
                     <th></th>
@@ -33,10 +33,10 @@
                 @foreach (var item in Model)
                 {
             <tr>
-                <td>
+                <td class='text-right'>
                     @Html.DisplayFor(m => item.Name)
                 </td>
-                <td>
+                <td class='text-right'>
                     @Html.DisplayFor(m => item.Category.Name)
                 </td>
                 <td>
@@ -48,9 +48,9 @@
         }
         else
         {
-            <p>
-                No SubCategory Exists
-            </p>
+            <h1 class='text-center'>
+                لا توجد أنواع فرعيه متاحه
+            </h1>
         }
     </div>
 </div>

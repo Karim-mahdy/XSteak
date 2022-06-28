@@ -6,36 +6,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
-<h2 class="text-info">Delet SubCategory</h2>
+<h2 class="text-info text-right">حذف النوع الفرعي</h2>
 <br />
 
 <div class=" border backgroundWhite row">
-    <div class="col-8 border-right ">
+    <div class="col-12 border-right ">
         <form asp-action="Delete">
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group row">
-                <div class="col-3">
+                <div class="col-2">
                     <label asp-for="SubCategory.CategoryId" class="col-form-label"></label>
                 </div>
-                <div class="col-5">
+                <div class="col-3">
                     <input id="ddlCategoryList" disabled asp-for="SubCategory.Category.Name" class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-3">
+                <div class="col-2">
                     <label asp-for="SubCategory.Name" class="col-form-label"></label>
                 </div>
-                <div class="col-5">
+                <div class="col-3">
                     <input asp-for="SubCategory.Name" disabled class="form-control" />
                 </div>
 
             </div>
             <div class="form-group row">
-                <div class="col-5 offset-3">
-
+                <div class="col-6"></div>
+                <div class="col-6">
                     <partial name="_DeleteAndBackToListButton" model="Model.SubCategory.Id" />
-
                 </div>
             </div>
         </form>

@@ -27,7 +27,9 @@ namespace xSteak.Models
         public string Description { get; set; }
 
         [Required]
+        [Display(Name = "السعر")]
         public double Price { get; set; }
+        
     }
 
 }

@@ -15,8 +15,8 @@
                 </div>
                 <div class="col-md-9 col-sm-12">
                     <div class="row pr-3">
-                        <div class="col-8">
-                            <label class="text-primary" style="font-size:21px;color:maroon">@item.Name</label>
+                        <div class="col-8 row">
+                            <p class="text-primary text-right ml-2" style="font-size:21px;color:maroon">@item.Name</p>
                             @if (item.Spicyness == "1")
                             {
                                 <img src="~/Images/notSpicy.png" title="Mild" width="30px" height="30px" />
@@ -30,17 +30,18 @@
                                 <img src="~/Images/verySpicy.png" title="VerySpicy" width="35px" height="35px" />
                             }
                         </div>
-                        <div class="col-4 text-right" style="color:maroon">
-                            <h4>$@item.Price</h4>
+                        <div class="col-4 text-left" style="color:maroon">
+                            <h4>@item.Price ج</h4>
                         </div>
                     </div>
                  
-                    <div class="row col-12 text-justify d-none d-md-block">
+                    <div class="row col-12 text-justify d-none d-md-block text-right">
                         <p>@Html.Raw(item.Descrition)</p>
-                    </div>
-                    <div class="col-md-3 col-sm-12 offset-md-9 text-center">
-                        <a asp-action="Detials"  class="btn btn-success form-control" asp-route-id="@item.Id">Order Now</a>
-                    </div>
+                    </div>                                                            
+                </div>
+                <div class="col-9"></div>
+                <div class="col-3">
+                    <a asp-action="Detials"  class="btn btn-success form-control" asp-route-id="@item.Id">اطلب الأن</a>
                 </div>
 
             </div>

@@ -24,7 +24,7 @@ namespace xSteak.Models
         [ForeignKey("MenuItemId")]
         public virtual MenuItem MenuItem { get; set; }
 
-        [Range(1,int.MaxValue ,ErrorMessage ="Please Enter Value Greater Than Or = {1} ")]
+        [Range(1,int.MaxValue ,ErrorMessage ="من فضلك ادخل سعر < من 1 ج ")]
         public int Count { get; set; }
     }
 }

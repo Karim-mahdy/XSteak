@@ -10,7 +10,7 @@ namespace xSteak.Models
     {
         [Key]
         public int Id { get; set; }
-        [Display(Name="Category Name")]
+        [Display(Name="اسم النوع")]
         [Required]
         public string Name { get; set; }
     }

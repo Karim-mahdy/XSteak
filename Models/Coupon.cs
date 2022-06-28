@@ -12,21 +12,27 @@ namespace xSteak.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name="اسم الكوبون")]
         public string Name { get; set; }
 
         [Required]
+        [Display(Name="نوع الكوبون")]
         public string CouponType { get; set; }
 
         public enum ECouponType { Present = 0, Doller = 1 }
-
+        
         [Required]
+        [Display(Name="الخصم")]
         public double Discount { get; set; }
 
         [Required]
-        public double MinimumAmount { get; set; }
+        [Display(Name="اقل قيمه")]
+        public double MinimumAmount { get; set; }        
 
+        [Display(Name="الصوره")]
         public byte[] Picture { get; set; }
 
+        [Display(Name="نشط")]
         public bool IsActive { get; set; }
     }
 }

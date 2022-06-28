@@ -2,11 +2,11 @@
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - x Steak </title>
+    <title>@ViewData["Title"] - X Steak </title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/css/jquery-ui.css" rel="stylesheet" />
@@ -16,29 +16,28 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">x Steak</a>
+                <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">X Steak</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 ">
                         @if (User.IsInRole(SD.ManagerUser))
                         {
                             <li class="nav-item dropdown text-white-50">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Content Management
+                                    إداره المحتوي
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
-                                    <a class="dropdown-item" asp-action="Index" asp-controller="Category" asp-area="Admin">Category</a>
-                                    <a class="dropdown-item" asp-action="Index" asp-controller="SubCategory" asp-area="Admin">Sub Category</a>
-                                    <a class="dropdown-item" asp-action="Index" asp-controller="MenuItem" asp-area="Admin">Menu Item</a>
-                                    <a class="dropdown-item" asp-action="Index" asp-controller="Coupon" asp-area="Admin">Coupons</a>
-                                    <a class="dropdown-item" asp-action="Index" asp-controller="User" asp-area="Admin">Employees</a>
+                                <div class="dropdown-menu text-right" aria-labelledby="navbarDropDownMenuLink">
+                                    <a class="dropdown-item" asp-action="Index" asp-controller="Category" asp-area="Admin">النوع</a>
+                                    <a class="dropdown-item" asp-action="Index" asp-controller="SubCategory" asp-area="Admin">نوع داخلي</a>
+                                    <a class="dropdown-item" asp-action="Index" asp-controller="MenuItem" asp-area="Admin">عناصر القائمه</a>
+                                    <a class="dropdown-item" asp-action="Index" asp-controller="Coupon" asp-area="Admin">كوبونات خصم</a>
+                                    <a class="dropdown-item" asp-action="Index" asp-controller="User" asp-area="Admin">موظفين</a>
 
                                 </div>
-
                             </li>
 
                         }
@@ -49,7 +48,7 @@
 
                                 @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.KitchenUser))
                                 {
-                                    <a asp-action="ManageOrder" asp-controller="ManageOrder" asp-area="Admin" class="nav-link">Mange Order</a>
+                                    <a asp-action="" asp-controller="" asp-area="Admin" class="nav-link">إداره الطلبات</a>
                                 }
 
                             </li>
@@ -59,7 +58,7 @@
                                 {
 
 
-                                    <a asp-action="OrderPickup" asp-controller="ManageOrder" asp-area="Admin" class="nav-link">PickUp Order</a>
+                                    <a asp-action="" asp-controller="" asp-area="Admin" class="nav-link">اختر طلب</a>
                                 }
                             </li>
 
@@ -67,8 +66,8 @@
                         @if (User.IsInRole(SD.ManagerUser))
                         {
                             <li class="nav-item">
-                                <a asp-area="Customer" asp-controller="Order" asp-action="OrderHistory" class="nav-link">
-                                    Orders List
+                                <a asp-area="Customer" asp-controller="" asp-action="" class="nav-link">
+                                    قائمه الطلبات
                                 </a>
                             </li>
 
@@ -76,8 +75,8 @@
                         @if (User.IsInRole(SD.CustomerEndUser))
                         {
                             <li class="nav-item">
-                                <a asp-area="Customer" asp-controller="Order" asp-action="OrderHistory" class="nav-link">
-                                    Orders History
+                                <a asp-area="Customer" asp-controller="" asp-action="" class="nav-link">
+                                    تاريخ الطلبات
                                 </a>
                             </li>
 
@@ -114,8 +113,8 @@
     </div>
 
     <footer class="border-top footer text-white-50" style="background-color:#343a40">
-        <div class="container">
-            &copy; 2022 - x Steak
+        <div class="container text-right h4">
+            &copy; 2022 - MFCI - X Steak
         </div>
     </footer>
 

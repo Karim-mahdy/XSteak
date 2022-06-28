@@ -12,12 +12,12 @@ namespace xSteak.Models
     {
         [Key]
         public int Id { get; set; }
-        [Display(Name = "SubCategory Name")]
+        [Display(Name = "النوع الفرعي")]
         [Required]
         public string Name { get; set; }
         
         [Required]
-        [Display(Name="Category")]
+        [Display(Name="النوع")]
         public int CategoryId { get; set; }
 
         [ForeignKey ("CategoryId")]

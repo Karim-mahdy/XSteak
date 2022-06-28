@@ -6,53 +6,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
-<h2 class="text-info">Create SubCategory</h2>
+<h2 class="text-info text-right">إنشاء نوع فرعي</h2>
 <br />
 <partial name="_StatusMessage" model="Model.StatusMassage" />
 <div class=" border backgroundWhite row">
 
-    <div class="col-8 border-right ">
+    <div class="col-12 border-right ">
         <form method="post" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group row">
-                <div class="col-3">
+                <div class="col-2">
                     <label asp-for="SubCategory.CategoryId" class="col-form-label"></label>
                 </div>
-                <div class="col-5">
-                    <select asp-for="@Model.SubCategory.CategoryId" id="ddlCategoryList" asp-items="ViewBag.ListofCategory" class="form-control"> <option value="" disabled selected>Select your option</option></select>
-
-                    @*<select id="ddlCategoryList" asp-for="SubCategory.CategoryId" asp-items="Model.CategoryList.ToSelectListItem(Model.SubCategory.CategoryId)" class="form-control"></select>*@
-                </div>
+                <div class="col-3">
+                    <select asp-for="@Model.SubCategory.CategoryId" id="ddlCategoryList" asp-items="ViewBag.ListofCategory" class="form-control"> <option value="" disabled selected>اختر من القائمه</option></select>
+                </div>                
             </div>
 
             <div class="form-group row">
-                <div class="col-3">
+                <div class="col-2">
                     <label asp-for="SubCategory.Name" class="col-form-label"></label>
                 </div>
-                <div class="col-5">
+                <div class="col-3">
                     <input asp-for="SubCategory.Name" class="form-control" />
                 </div>
                 <span asp-validation-for="SubCategory.Name" class="text-danger"></span>
             </div>
+            <div class="col-3 offset-1">
+                @if (Model.SubCategoryList.Count() > 0)
+                {
+                    <p class='text-right'> الأنواع الفرعيه المتاحه</p>
+                    <div id="SubCategoryList">
+                        <ul class="list-group text-right"></ul>
+                    </div>
+
+                }
+            </div>
             <div class="form-group row">
-                <div class="col-5 offset-3">
+                <div class="col-6"></div>
+                <div class="col-6">
                     <partial name="_CreateAndBackToListButton" />
                 </div>
             </div>
         </form>
-    </div>
-
-    <div class="col-3 offset-1">
-        @if (Model.SubCategoryList.Count() > 0)
-        {
-            <p> Existing Subcategories</p>
-            <div id="SubCategoryList">
-                <ul class="list-group"></ul>
-            </div>
-
-        }
-    </div>
-
+    </div>    
 </div>
 
 @section Scripts {
