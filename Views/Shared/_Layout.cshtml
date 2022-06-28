@@ -48,7 +48,7 @@
 
                                 @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.KitchenUser))
                                 {
-                                    <a asp-action="" asp-controller="" asp-area="Admin" class="nav-link">إداره الطلبات</a>
+                                    <a asp-action="ManageOrder" asp-controller="ManageOrder" asp-area="Admin" class="nav-link">إداره الطلبات</a>
                                 }
 
                             </li>
@@ -58,7 +58,7 @@
                                 {
 
 
-                                    <a asp-action="" asp-controller="" asp-area="Admin" class="nav-link">اختر طلب</a>
+                                    <a asp-action="OrderPickup" asp-controller="ManageOrder" asp-area="Admin" class="nav-link">اختر طلب</a>
                                 }
                             </li>
 
@@ -66,7 +66,7 @@
                         @if (User.IsInRole(SD.ManagerUser))
                         {
                             <li class="nav-item">
-                                <a asp-area="Customer" asp-controller="" asp-action="" class="nav-link">
+                                <a asp-area="Customer" asp-controller="Order" asp-action="OrderHistory" class="nav-link">
                                     قائمه الطلبات
                                 </a>
                             </li>
@@ -75,7 +75,7 @@
                         @if (User.IsInRole(SD.CustomerEndUser))
                         {
                             <li class="nav-item">
-                                <a asp-area="Customer" asp-controller="" asp-action="" class="nav-link">
+                                <a asp-area="Customer" asp-controller="Order" asp-action="OrderHistory" class="nav-link">
                                     تاريخ الطلبات
                                 </a>
                             </li>
