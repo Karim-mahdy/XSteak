@@ -50,13 +50,15 @@ namespace xSteak.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
+            [Display(Name = "البريد الإلكتروني")]
             public string Email { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "كلمه السر")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "تذكرني")]
             public bool RememberMe { get; set; }
         }
 
