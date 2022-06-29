@@ -82,7 +82,16 @@ namespace xSteak.Areas.Customer.Controllers
                 //.Include(o => o.ApplicationUser)
                 OrderHeader = await _db.OrderHeader.Include(x => x.ApplicationUser).FirstOrDefaultAsync(o => o.Id == id && o.UserId == claim.Value),
                 OrderDetails = await _db.OrderDetails.Where(o => o.OrderId == id).ToListAsync()
+                
             };
+            if (orderDetalisView.OrderHeader == null)
+            {
+                foreach (var item in orderDetalisView.OrderDetails)
+                {
+                    var x = _db.OrderHeader.Include(x => x.ApplicationUser).FirstOrDefault(p=>p.Id == item.OrderId);
+                    orderDetalisView.OrderHeader=x;
+                }
+            }
             return PartialView("_IndividualOrderDetalis", orderDetalisView);
         }
 
