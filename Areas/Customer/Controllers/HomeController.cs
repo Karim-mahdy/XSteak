@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using xSteak.Data;
 using xSteak.Models;
 using xSteak.Models.ViewModels;
+using xSteak.Utility;
+
 
 namespace xSteak.Controllers
 {
@@ -25,8 +27,10 @@ namespace xSteak.Controllers
             _db = db;
         }
 
+        
         public async Task<IActionResult> Index()
         {
+
             var claimIdentity = (ClaimsIdentity)this.User.Identity;
             var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
             IndexViewModel IndexVM = new IndexViewModel();
@@ -38,7 +42,20 @@ namespace xSteak.Controllers
                 var cnt = _db.ShoppingCart.Where(x => x.ApplicationUserId == claim.Value).ToList().Count;
                 HttpContext.Session.SetInt32("ssCartCount", cnt);
             }
-            return View(IndexVM);
+            
+            if ( User.IsInRole(SD.KitchenUser))
+            {
+                return RedirectToAction("ManageOrder", "ManageOrder", new { area = "Admin" });
+            }
+            else if (User.IsInRole(SD.FrontDeskUser))
+            {
+                return RedirectToAction("OrderPickup", "ManageOrder", new { area = "Admin" });
+            }
+            else
+            {
+                return View(IndexVM);
+            }
+            
 
         }
 
