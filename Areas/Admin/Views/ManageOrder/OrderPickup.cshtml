@@ -7,21 +7,21 @@
 <form method="get">
     <br />
     <br />
-    <h2 class="text-info">Orders Ready For Pickp :</h2>
+    <h2 class="text-info text-right">الطلبات الجاهزه للتسليم :</h2>
     <div class="border backgroundWhite">
         <div class="container border border-secondary" style="height:60px;">
             <div class="row container">
                 <div class="col-11 ">
                     <div class=" row" style="padding-top:10px">
                         <div class="col-4">
-                            @Html.Editor("searchName", new { htmlAttributes = new { @class = "form-control", placeholder = "Name...." } })
+                            @Html.Editor("searchName", new { htmlAttributes = new { @class = "form-control", placeholder = "الإسم..." } })
+                        </div>
+                        @* <div class="col-4">
+                            @Html.Editor("searchPhone", new { htmlAttributes = new { @class = "form-control", placeholder = "رقم الهاتف..." } })
                         </div>
                         <div class="col-4">
-                            @Html.Editor("searchPhone", new { htmlAttributes = new { @class = "form-control", placeholder = "Phone...." } })
-                        </div>
-                        <div class="col-4">
-                            @Html.Editor("searchEmail", new { htmlAttributes = new { @class = "form-control", placeholder = "Email...." } })
-                        </div>
+                            @Html.Editor("searchEmail", new { htmlAttributes = new { @class = "form-control", placeholder = "البريد الإلكتروني...." } })
+                        </div> *@
                     </div>
                 </div>
                 <div class="col-1">
@@ -40,23 +40,23 @@
             {
                 <table class="table table-striped border">
                     <tr class="table-secondary">
-                        <th>
+                        <th class='text-right'>
                             @Html.DisplayNameFor(x => x.OrderHeader.Id)
                         </th>
-                        <th>
+                        <th class='text-right'>
                             @Html.DisplayNameFor(x => x.OrderHeader.PickupName)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(x => x.OrderHeader.ApplicationUser.Email)
+                        <th class='text-right'>
+                           البريد الإلكتروني
                         </th>
-                        <th>
+                        <th class='text-right'>
                             @Html.DisplayNameFor(x => x.OrderHeader.PickupTime)
                         </th>
-                        <th>
+                        <th class='text-right'>
                             @Html.DisplayNameFor(x => x.OrderHeader.OrderTotal)
                         </th>
-                        <th>
-                            Total Item
+                        <th class='text-right'>
+                            عدد الأصناف
                         </th>
 
                         <th>
@@ -74,28 +74,28 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td class='text-right'>
                                 @Html.DisplayFor(m => item.OrderHeader.Id)
                             </td>
-                            <td>
+                            <td class='text-right'>
                                 @Html.DisplayFor(m => item.OrderHeader.PickupName)
                             </td>
-                            <td>
+                            <td class='text-right'>
                                 @Html.DisplayFor(m => item.OrderHeader.ApplicationUser.Email)
                             </td>
-                            <td>
+                            <td class='text-right'>
                                 @Html.DisplayFor(m => item.OrderHeader.PickupTime)
                             </td>
-                            <td>
+                            <td class='text-right'>
                                 @Html.DisplayFor(m => item.OrderHeader.OrderTotal)
                             </td>
-                            <td>
+                            <td class='text-right'>
                                 @Html.DisplayFor(m => item.OrderDetails.Count)
                             </td>
                             <td>
                                 <button type="button" class="btn btn-success anchorDetails" data-id="@item.OrderHeader.Id" data-toggle="modal">
                                     <i class="far fa-list-alt"></i>
-                                    Details
+                                    تفاصيل
                                 </button>
                             </td>
                             <td>
@@ -103,7 +103,7 @@
                                 <a asp-action="Invoice" asp-controller="ManageOrder" class="btn btn-info" asp-route-id="@item.OrderHeader.Id">
 
                                     <i class="far fa-list-alt"></i>
-                                    invoice
+                                    فاتوره
                                 </a>
 
                             </td>
@@ -113,20 +113,20 @@
             }
             else
             {
-                <p>
-                    No Orders Ready For Pickp
-                </p>
+                <h1 class='text-center'>
+                   لا توجد طلبات الأن...
+                </h1>
             }
         </div>
     </div>
 
 </form>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog-centered modal-dialog" style="max-width:700px" role="document">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-idden="true">
+    <div class="modal-dialog-centered modal-dialog" style="max-width:1000px" role="document">
         <div class="modal-content">
             <div class="modal-header bg-success text-light ">
-                <div class="col-10 offset-1">
-                    <center><h5 class="modal-title">Order Details</h5></center>
+                <div class="col-10 offset-1 tex-right">
+                    <center><h5 class="modal-title">تفاصيل الطلب</h5></center>
                 </div>
                 <div class="col-1">
                     <button type="button" class="float-right btn-outline-secondary close" data-dismiss="modal" aria-label="Close">

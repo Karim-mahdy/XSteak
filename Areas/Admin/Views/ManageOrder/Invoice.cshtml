@@ -12,7 +12,7 @@
     <br />
     <h2 class="text-info" style="text-align:center">Invoice</h2>
     <br />
-    <h5 class="text-info" style="text-align:center">Restaurant Hnm Hum </h5>
+    <h5 class="text-info" style="text-align:center">Restaurant Xsteak </h5>
     <br />
     <div style="text-align:center">
         <h4 class="my-0">
@@ -55,7 +55,7 @@
                         <h6 class="my-0"> @detalis.Name</h6>
                         <small class="text-muted">Quantity : @detalis.Count</small>
                     </div>
-                    <span class="text-muted">$@(detalis.Price * detalis.Count)</span>
+                    <span class="text-muted">@(detalis.Price * detalis.Count) ج</span>
                 </li>
             }
             @if (Model.OrderHeader.CouponCode != null)
@@ -65,17 +65,17 @@
                         <h6 class="my-0"> Promo Code </h6>
                         <small class="text-success">@Model.OrderHeader.CouponCode</small>
                     </div>
-                    <span class="text-success">-$@(total - Model.OrderHeader.OrderTotal)</span>
+                    <span class="text-success">-@(total - Model.OrderHeader.OrderTotal) ج</span>
                 </li>
             }
             <li class="list-group-item d-flex justify-content-between bg-light">
-                <small class="text-info">Total (USD) </small>
-                <strong class="text-info">$@(Model.OrderHeader.OrderTotal)</strong>
+                <small class="text-info">Total (EGP) </small>
+                <strong class="text-info">@(Model.OrderHeader.OrderTotal) ج</strong>
             </li>
 
         </ul>
         <div style="text-align: center">
-            <input type="button" style="border:dotted" class="btn btn-primary" asp-controller="Order" id="create_pdf" value="Print My Subjects">
+            <input type="button" style="border:dotted" class="btn btn-primary" asp-controller="Order" id="create_pdf" value="print">
             <hr style="background-color:#25b7c4" />
         </div>
     </div>

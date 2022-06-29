@@ -52,28 +52,34 @@ namespace xSteak.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "البريد الإلكتروني")]
             public string Email { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "كلمه المرور")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
+            [Display(Name = "تأكيد كلمه المرور")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
-
+            [Display(Name = "الإسم")]
             public string Name { get; set; }
             
+            [Display(Name = "رقم الهاتف")]
             public string PhoneNumber { get; set; }
+            [Display(Name = "عنوان الشارع")]
             public string StreetAddress { get; set; }
+            [Display(Name = "المدينه")]
             public string City { get; set; }
+            [Display(Name = "المحافظه")]
             public string State { get; set; }
+            [Display(Name = "الرقم البريدي")]
             public string PostalCode { get; set; }
+            [Display(Name = "نوع الوظيفه")]
             public string JopType { get; set; }
         }
 

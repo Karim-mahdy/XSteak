@@ -12,13 +12,13 @@
         <div class="backgroundWhiteBorder">
             <div class="container">
                 <div class="card">
-                    <div class="card-header bg-dark text-light ml-0 row container">
-                        <div class="col-6">
-                            <i class="fa fa-shooping-cart"></i> &nbsp;
-                            Shopping Cart
-                        </div>
+                    <div class="card-header bg-dark text-light ml-0 row mr-0">
                         <div class="col-6 text-right">
-                            <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-outline-info btn-sm">Continue Shopping</a>
+                            <i class="fa fa-shooping-cart"></i> &nbsp;
+                            سله التسوق
+                        </div>
+                        <div class="col-6 text-left">
+                            <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-outline-info btn-sm">استكمال التسوق</a>
                         </div>
                     </div>
                     @if (Model.ListCart.ToList().Count > 0)
@@ -30,14 +30,20 @@
                                     <div class="d-none d-lg-block col-lg-2 text-center py-2">
                                         <img src="@item.MenuItem.Image" class="rounded" width="135" height="89" />
                                     </div>
-                                    <div class="col-12 text-sm-center col-lg-5 text-lg-left">
+                                    <div class="col-12 text-sm-center col-lg-5 text-lg-right">
                                         <h4><strong>@item.MenuItem.Name</strong></h4>
                                         <h4><small> @Html.Raw(item.MenuItem.Descrition)</small></h4>  
 
                                     </div>
                                     <div class="col-12 text-sm-center col-lg-5 text-lg-right row">
                                         <div class="col-4 text-md-right" style="padding-top:5px;">
-                                            <h6><strong>@item.MenuItem.Price ج<span class="text-muted"></span>x @item.Count </strong></h6>
+                                            <h6>
+                                                <strong>
+                                                    <span>@item.MenuItem.Price - </span>
+                                                    <span>x</span>
+                                                    <span class="text-muted"></span>@item.Count
+                                                </strong>
+                                            </h6>
                                         </div>
                                         <div class="col-6 col-sm-4 col-lg-6">
                                             <div class="float-right mx-1">
@@ -68,7 +74,7 @@
                                         </div>
                                         <div class="col-5" style="margin-top:2px;">
                                             <button type="submit" class="btn btn-sm form-control btn-outline-success" id="btnCoupon" asp-action="AddCoupon">
-                                                استكمال الشراء
+                                                تطبيق
                                             </button>
                                             <button type="submit" class="btn btn-sm form-control btn-outline-danger" style="display:none" id="btnRemovoCoupon" asp-action="RemoveCoupon">
                                                 حذف
@@ -76,7 +82,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6 offset-md-1 col-lg-4 offset-lg-3 pr-4">
+                                <div class="col-12 col-md-6 offset-md-1 col-lg-4 offset-lg-3">
                                     <ul class="list-group">
                                         <li class="list-group-item d-flex justify-content-between bg-light">
                                             <span class="text-info">المجموع(EGP)</span>
@@ -89,7 +95,7 @@
                     }                    
                     <div class="card-footer">
                         <div class="col-12 col-lg-4 offset-lg-8 col-md-6 offset-md-6">
-                            <a asp-action="Summary" asp-area="Customer" asp-controller="Cart" class="btn btn-success form-control">تفاصيل</a>
+                            <a asp-action="Summary" asp-area="Customer" asp-controller="Cart" class="btn btn-success form-control">متابعه</a>
                         </div>
                     </div>
                 </div>

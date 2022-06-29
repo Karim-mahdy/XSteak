@@ -58,6 +58,7 @@ namespace xSteak.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             public string Name { get; set; }
+            [Display(Name = "رقم الهاتف")]
             public string PhoneNumber { get; set; }
             public string StreetAddress { get; set; }
             public string City { get; set; }

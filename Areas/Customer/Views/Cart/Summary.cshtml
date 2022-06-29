@@ -17,12 +17,12 @@
         <div class="backgroundWhiteBorder">
             <div class="container">
                 <div class="card">
-                    <div class="card-header bg-dark text-light ml-0 row container">
-                        <div class="col-6">
+                    <div class="mx-1 card-header bg-dark text-light row">
+                        <div class="col-6 text-right">
                             <i class="fa fa-shopping-cart"></i> &nbsp;
                             مراجعه الطلب
                         </div>
-                        <div class="col-6 text-right">
+                        <div class="col-6 text-left">
                             <a asp-area="Customer" asp-controller="Cart" asp-action="Index" class="btn btn-outline-info btn-sm">ارجع الي سله التسوق</a>
                         </div>
                     </div>
@@ -32,12 +32,12 @@
                                 <div class="col-12 col-lg-6 pb-4">
                                     <div class="row">
                                         <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                            <span class="text-info">تفاصيل الطلب</span>
+                                            <span class="text-info">استكمال الأن</span>
                                         </h4>
                                     </div>
                                     <div class="row my-1">
                                         <div class="col-3">
-                                            <label>اتلاسم</label>
+                                            <label>الاسم</label>
                                         </div>
                                         <div class="col-9">
                                             <input asp-for="@Model.OrderHeader.PickupName" id="txtName" type="text" class="form-control" />
@@ -79,7 +79,7 @@
 
                                 <div class="col-12 col-lg-5 offset-lg-1">
                                     <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                        <span class="text-info">Order Summary:</span>
+                                        <span class="text-info">تفاصيل الطلب</span>
                                     </h4>
                                     <ul class="list-group mb-3">
                                         @{ var total = 0.0;}
@@ -87,7 +87,7 @@
                                         @foreach (var details in Model.ListCart)
                                         {
                                             <li class="list-group-item d-flex justify-content-between">
-                                                <div>
+                                                <div class='text-right'>
                                                     <h6 class="my-0">@details.MenuItem.Name</h6>
                                                     <small class="text-muted">الكميه : @details.Count</small>
                                                 </div>
@@ -99,18 +99,18 @@
                                         {
                                             <li class="list-group-item d-flex justify-content-between">
                                                 <div class="text-success">
-                                                    <h6 class="my-0">برمو كود</h6>
+                                                    <h6 class="my-0">كود الخصم</h6>
                                                     <small class="text-success">@Model.OrderHeader.CouponCode</small>
                                                 </div>
                                                 <span class="text-success">-@(total - Model.OrderHeader.OrderTotal) ج</span>
                                             </li>
                                         }
                                         <li class="list-group-item d-flex justify-content-between bg-light">
-                                            <small class="text-info">Total (USD)</small>
+                                            <small class="text-info">المجموع (بالجنيه)</small>
                                             <strong class="text-info">@(Model.OrderHeader.OrderTotal) ج</strong>
                                         </li>
                                     </ul>
-                                </div>
+                                </div>  
                             </div>
                         </div>
                     </div>

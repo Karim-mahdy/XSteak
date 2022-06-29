@@ -10,6 +10,7 @@ namespace xSteak.Models
     public class OrderHeader
     {
         [Key]
+        [Display(Name="رقم الطلب")]
         public int Id { get; set; }
 
         [Required]
@@ -24,14 +25,15 @@ namespace xSteak.Models
         public double OrderTotalOriginal { get; set; }
 
         [Required]
+        [Display(Name="المطلوب")]
         public double OrderTotal { get; set; }
 
         [Required]
-        [Display(Name ="وقت الوصل")]
+        [Display(Name ="وقت التسليم")]
         public DateTime PickupTime { get; set; }
 
         [Required]
-        [Display(Name = "تاريخ الوصول")]
+        [Display(Name = "تاريخ التسليم")]
         public DateTime PickupDate { get; set; }
 
         [Display(Name ="كود الكوبون")]
@@ -41,7 +43,7 @@ namespace xSteak.Models
         public string PaymentStatus { get; set; }
         public string Comments { get; set; }
         
-        [Display(Name ="اسم التوصيل")]
+        [Display(Name ="اسم العميل")]
         public string PickupName { get; set; }
 
         [Display(Name = "رقم التوصيل")]

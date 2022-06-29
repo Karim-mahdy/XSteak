@@ -58,7 +58,7 @@ namespace xSteak.Areas.Admin.Controllers
                 var deesSubCategoryExists = _db.SubCategory.Include(p => p.Category).Where(p => p.Name == model.SubCategory.Name && p.Category.Id == model.SubCategory.CategoryId);
                 if (deesSubCategoryExists.Count() > 0)
                 {
-                    StatusMassage = "Error : SubCategory Exists Under" + deesSubCategoryExists.First().Category.Name + "Category. please use another name. ";
+                    StatusMassage = "خطأ : هذا النوع الفرعي موجود مسبقا في النوع (" + deesSubCategoryExists.First().Category.Name + ") برجاء ادخال نوع جديد";
                 }
                 else
                 {
@@ -119,7 +119,7 @@ namespace xSteak.Areas.Admin.Controllers
                 var deesSubCategoryExists = _db.SubCategory.Include(p => p.Category).Where(p => p.Name == model.SubCategory.Name && p.Category.Id == model.SubCategory.CategoryId);
                 if (deesSubCategoryExists.Count() > 0)
                 {
-                    StatusMassage = "Error : SubCategory Exists Under" + deesSubCategoryExists.First().Category.Name + "Category. please use another name. ";
+                    StatusMassage = "خطأ هذا النوع الفرعي متواجد في )" + deesSubCategoryExists.First().Category.Name + ") برجاء اختيار نوع جديد. ";
                 }
                 else
                 {

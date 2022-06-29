@@ -8,8 +8,8 @@
 <br />
 <div class="border backgroundWhite">
     <div class="row">
-        <div class="col-6">
-            <h2 class="text-info">OrderHistory List</h2>
+        <div class="col-6 text-right">
+            <h2 class="text-info">تاريخ الطلبات</h2>
         </div>
        
     </div>
@@ -26,7 +26,7 @@
                         @Html.DisplayNameFor(x => x.OrderHeader.PickupName)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(x => x.OrderHeader.ApplicationUser.Email)
+                       البريد الإلكتروني
                     </th>
                     <th>
                         @Html.DisplayNameFor(x => x.OrderHeader.PickupTime)
@@ -35,13 +35,12 @@
                         @Html.DisplayNameFor(x => x.OrderHeader.OrderTotal)
                     </th>
                     <th>
-                        Total Item
-                    </th>
-                    
+                        عدد الأصناف
+                    </th> 
                     <th>
-
-                    </th>
-
+                    </th> 
+                    <th>
+                    </th>                    
                 </tr>
                 @foreach (var item in Model)
                 {
@@ -68,12 +67,12 @@
                 <td>
                     <button type="submit" class="btn btn-success anchorDetails" data-id="@item.OrderHeader.Id" data-toggle="modal">
                         <i class="far fa-list-alt"></i>
-                        Details
+                        التفاصيل
                     </button>
                     @if (item.OrderHeader.Status == xSteak.Utility.SD.StatusSubmitted || item.OrderHeader.Status == xSteak.Utility.SD.StatusInProcess || item.OrderHeader.Status == xSteak.Utility.SD.StatusCompleted || item.OrderHeader.Status == xSteak.Utility.SD.StatusReady)
                     {
                         <button type="button" class="btn btn-info btnOrderStatus" data-id="@item.OrderHeader.Id" data-toggle="modal">
-                            <i class="far fa-clock"></i> Status
+                            <i class="far fa-clock"></i> الحاله
                         </button>
                     }
                 </td>
@@ -83,25 +82,25 @@
         }
         else
         {
-            <p>
-                No Category Exists
-            </p>
+            <h1 class=text-center>
+                لا توجد اصناف
+            </h1>
         }
     </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog-centered modal-dialog" style="max-width:700px" role="document">
+    <div class="modal-dialog-centered modal-dialog" style="max-width:1000px" role="document">
         <div class="modal-content" >
             <div class="modal-header bg-success text-light justify-content-center">
                 <h5 class="modal-title">
-                    Order Details
+                    تفاصيل الطلب
                 </h5>
             </div>
             <div class="modal-body justify-content-center" id="myModalContent">
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" style="width:20%" data-dismiss="modal">Colse</button>
+                <button type="button" class="btn btn-secondary" style="width:20%" data-dismiss="modal">اغلق</button>
             </div>
         </div>
     </div>
@@ -110,12 +109,12 @@
     <div class="modal-dialog modal-dialog-centered" style="max-width:700px"  role="document">
         <div class="modal-content">
             <div class="modal-header bg-info text-light justify-content-center">
-                <h5 class="modal-title">Order Status </h5>
+                <h5 class="modal-title">حاله الطلب</h5>
             </div>
             <div class="modal-body justify-content-center" id='myOrderStatusContent'>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" style="width:20%" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" style="width:20%" data-dismiss="modal">اغلق</button>
             </div>
         </div>
     </div>

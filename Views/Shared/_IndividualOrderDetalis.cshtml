@@ -8,101 +8,98 @@
             <br />
             <input hidden asp-for="OrderHeader.Id" />
             <div class="form-group row">
-                <div class="col-3">
-                    <label>Name</label>
+                <div class="col-3 text-right">
+                    <label>الإسم</label>
                 </div>
-                <div class="col-9">
+                <div class="col-7">
                     <input asp-for="OrderHeader.PickupName" disabled class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-3">
-                    <label>PhoneNumber</label>
+                <div class="col-3 text-right">
+                    <label>رقم الهاتف</label>
                 </div>
-                <div class="col-9">
+                <div class="col-7">
                     <input asp-for="OrderHeader.ApplicationUser.PhoneNumber" disabled class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-3">
-                    <label>Email</label>
+                <div class="col-3 text-right">
+                    <label>البريد الإلكتروني</label>
                 </div>
-                <div class="col-9">
+                <div class="col-7">
                     <input asp-for="OrderHeader.ApplicationUser.Email" disabled class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-3">
-                    <label>Order Total</label>
+                <div class="col-3 text-right">
+                    <label>المجموع</label>
                 </div>
-                <div class="col-9">
+                <div class="col-7">
                     <input asp-for="@Model.OrderHeader.OrderTotal" disabled class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-3">
-                    <label>Order Date</label>
+                <div class="col-3 text-right">
+                    <label>تاريخ الطلب</label>
                 </div>
-                <div class="col-9">
+                <div class="col-7">
                     <input value="@Model.OrderHeader.PickupTime.ToShortDateString() @Model.OrderHeader.PickupTime.ToShortTimeString()" disabled class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-3">
-                    <label>Comments</label>
+                <div class="col-3 text-right">
+                    <label>إضافات</label>
                 </div>
-                <div class="col-9">
+                <div class="col-7">
                     <input asp-for="@Model.OrderHeader.Comments" disabled class="form-control" />
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-4 col-12">
-
+        <div class="col-lg-4 col-12 mt-5">
             <h4 class="d-flex justify-content-between align-content-center mb-3">
-                <span class="text-muted">Order ID :</span>
+                <span class="text-muted">رقم الطلب</span>
                 <span class="badge badge-secondary badge-pill">@Model.OrderHeader.Id</span>
             </h4>
-            <ul class="list-group mb-3">
-                @{ var total = 0.0;
-
-
-                }
+            <ul class="list-group mb-3 text-right">
+                @{ var total = 0.0; }
 
                 @foreach (var detalis in Model.OrderDetails)
                 {
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex">
                         <div>
                             <h6 class="my-0"> @detalis.Name</h6>
-                            <small class="text-muted">Quantity : @detalis.Count</small>
+                            <small class="text-muted">الكميه : @detalis.Count</small>
                         </div>
-                        <span class="text-muted">$@(total+=detalis.Price * detalis.Count)</span>
+                        <span class="text-muted">@(total+=detalis.Price * detalis.Count) ج</span>
                     </li>
                 }
                 @if (Model.OrderHeader.CouponCode != null)
                 {
                     <li class="list-group-item d-flex justify-content-between">
                         <div class="text-success">
-                            <h6 class="my-0"> Promo Code </h6>
+                            <h6 class="my-0"> كوبون الخصم</h6>
                             <small class="text-success">@Model.OrderHeader.CouponCode</small>
                         </div>
-                        <span class="text-success">-$@(total - Model.OrderHeader.OrderTotal)</span>
+                        <span class="text-success">-@(total - Model.OrderHeader.OrderTotal) ج</span>
                     </li>
                 }
                 <li class="list-group-item d-flex justify-content-between bg-light">
-                    <small class="text-info">Total (USD) </small>
-                    <strong class="text-info">$@(Model.OrderHeader.OrderTotal)</strong>
+                    <small class="text-info">المطلوب (بالجنيه) </small>
+                    <strong class="text-info">@(Model.OrderHeader.OrderTotal) ج</strong>
                 </li>
-
             </ul>
-            @if ((Model.OrderHeader.Status == SD.StatusReady )&& (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.FrontDeskUser)))
-            {
-                <button type="submit" class="btn btn-success form-control"><i class="far fa-thumbs-up"></i> Confirm Pickup</button>
-            }
-            else
-            {
-                <button type="button" disabled class="btn btn-info form-control">@Model.OrderHeader.Status</button>
-            }
+            <div class='mt-5 ml-3 mr-5 d-flex justify-content-between align-content-center'>
+                @if ((Model.OrderHeader.Status == SD.StatusReady )&& (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.FrontDeskUser)))
+                {
+                    <button type="submit" class="btn btn-success form-control"><i class="far fa-thumbs-up"></i> تأكيد الطلب</button>
+                }
+                else
+                {
+                    <button type="button" disabled class="btn btn-info form-control">@Model.OrderHeader.Status</button>
+                }
+            </div>            
         </div>
     </div>
 </form>

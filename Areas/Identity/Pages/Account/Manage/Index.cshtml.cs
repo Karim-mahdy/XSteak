@@ -33,7 +33,7 @@ namespace xSteak.Areas.Identity.Pages.Account.Manage
         public class InputModel
         {
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "رقم الهاتف")]
             public string PhoneNumber { get; set; }
         }
 
