@@ -66,11 +66,11 @@
                                 </div>
                                 <hr />
                             }
-                            <div class="row">
-                                <div class="col-12 col-md-5">
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <input asp-for="@Model.OrderHeader.CouponCode" id="txtCouponCode" class="form-control" placeholder="كوبون كود" />
+                            <div class="col-12 row">
+                                <div class="col-6">
+                                    <div class="row mt-1">
+                                        <div class="col-7 mt-1">
+                                            <input asp-for="@Model.OrderHeader.CouponCode" id="txtCouponCode" class="form-control" placeholder="كوبون الخصم" />
                                         </div>
                                         <div class="col-5" style="margin-top:2px;">
                                             <button type="submit" class="btn btn-sm form-control btn-outline-success" id="btnCoupon" asp-action="AddCoupon">
@@ -82,7 +82,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6 offset-md-1 col-lg-4 offset-lg-3">
+                                <div class='col-2'></div>
+                                <div class="col-4">
                                     <ul class="list-group">
                                         <li class="list-group-item d-flex justify-content-between bg-light">
                                             <span class="text-info">المجموع(EGP)</span>
@@ -93,8 +94,9 @@
                             </div>
                         </div>
                     }                    
-                    <div class="card-footer">
-                        <div class="col-12 col-lg-4 offset-lg-8 col-md-6 offset-md-6">
+                    <div class="card-footer row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
                             <a asp-action="Summary" asp-area="Customer" asp-controller="Cart" class="btn btn-success form-control">متابعه</a>
                         </div>
                     </div>

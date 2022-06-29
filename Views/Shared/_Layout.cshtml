@@ -56,8 +56,6 @@
 
                                 @if (User.IsInRole(SD.ManagerUser) || User.IsInRole(SD.FrontDeskUser))
                                 {
-
-
                                     <a asp-action="OrderPickup" asp-controller="ManageOrder" asp-area="Admin" class="nav-link">تسليم الطلبات</a>
                                 }
                             </li>
@@ -93,14 +91,14 @@
                                 </a>
                             </li>
                         }
-                        else
+                        @* else
                         {
                             <li style="color:white">
                                 <a asp-area="Customer" asp-controller="Cart" asp-action="Index" class="nav-link">
                                     <i class="fas fa-shopping-cart"></i> &nbsp;(0)
                                 </a>
                             </li>
-                        }
+                        } *@
                     </ul>
                 </div>
             </div>
