@@ -51,6 +51,8 @@
                 <td>
                     @Html.DisplayFor(m => item.JopType)
                 </td>
+                <td>                    
+                </td>
                 <td>
                     @if (item.LockoutEnd == null || item.LockoutEnd < DateTime.Now)
                     {
@@ -64,13 +66,10 @@
                             <i class="fas fa-lock"></i>
                         </a>
                     }
-
-                </td>
-                <td>
-                    <a class="btn btn-danger text-white" asp-action="Delete" asp-controller="User" asp-route-id="@item.Id">
+                    <a class="mr-3 btn btn-danger text-white" asp-action="Delete" asp-controller="User" asp-route-id="@item.Id">
                         <i class="fas fa-trash-alt"></i>
                     </a>
-                </td>
+                </td>                
             </tr>
                 }
             </table>

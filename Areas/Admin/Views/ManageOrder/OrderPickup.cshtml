@@ -9,12 +9,17 @@
     <br />
     <h2 class="text-info text-right">الطلبات الجاهزه للتسليم :</h2>
     <div class="border backgroundWhite">
-        <div class="container border border-secondary" style="height:60px;">
+        <div class="container" style="height:60px;">
             <div class="row container">
                 <div class="col-11 ">
-                    <div class=" row" style="padding-top:10px">
+                    <div class="row" style="padding-top:10px">
                         <div class="col-4">
                             @Html.Editor("searchName", new { htmlAttributes = new { @class = "form-control", placeholder = "الإسم..." } })
+                        </div>
+                        <div class="col-1">
+                        <button type="submit" name="submit" value="Search" class="btn btn-info form-control">
+                            <i class="fas fa-search"></i>
+                        </button>
                         </div>
                         @* <div class="col-4">
                             @Html.Editor("searchPhone", new { htmlAttributes = new { @class = "form-control", placeholder = "رقم الهاتف..." } })
@@ -23,14 +28,7 @@
                             @Html.Editor("searchEmail", new { htmlAttributes = new { @class = "form-control", placeholder = "البريد الإلكتروني...." } })
                         </div> *@
                     </div>
-                </div>
-                <div class="col-1">
-                    <div class="row" style="padding-top:10px;">
-                        <button type="submit" name="submit" value="Search" class="btn btn-info form-control">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
+                </div>                
             </div>
 
         </div>
